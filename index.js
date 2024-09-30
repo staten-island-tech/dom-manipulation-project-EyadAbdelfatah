@@ -1,5 +1,6 @@
 const DOM={
     button:document.getElementById("btn"),
-    text:document.getElementById("txt")
+    text:document.getElementById("text"),
+    
 
 }
