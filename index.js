@@ -11,16 +11,19 @@ const DOMSelectors={
     items:document.querySelectorAll("li"),
     cardHeader:document.querySelectorAll(".card-header"),
     button:document.querySelector(".btn"),
-    form:document.querySelector("form")
+    form:document.querySelector("form"),
 }
 console.log(DOMSelectors.card);
 
-DOMSelectors.button.addEventListener("click",function(event){
-    console.log(event.target);
-    event.target.parentElement.style.backgroundColor="red";
-})
+
 DOMSelectors.form.addEventListener("submit",function(event){
     event.preventDefault();
+    let input = document.querySelector("input");
+    console.log(input.value)
+    input.value = "";
+    console.log(input.value)
 
-    console.log(document.querySelector("input").value);
+    
+
 })
+
