@@ -12,3 +12,11 @@ h1{
     text-align: center;
     margin-bottom: 10px;
 }
+.container{
+
+    height: 360px;
+    text-align: center;
+    width:25%;
+    display:flex;
+    margin-left: 20px;
+}
