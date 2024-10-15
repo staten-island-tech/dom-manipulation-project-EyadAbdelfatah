@@ -4,13 +4,12 @@ const DOMSelectors = {
   button: document.querySelector(".btn"),
   nameInput: document.querySelector("#name-input"),
   form: document.querySelector("form"),
-  removeButton:document.querySelector("#remove")
+  removeButton: document.querySelector("#remove"),
 };
+const imgUrl = DOMSelectors.imgInput.value;
+const name = DOMSelectors.nameInput.value;
 function createCard() {
   event.preventDefault();
-
-  const imgUrl = DOMSelectors.imgInput.value;
-  const name = DOMSelectors.nameInput.value;
 
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
@@ -20,13 +19,16 @@ function createCard() {
         <img src="${imgUrl}" alt="User Image" id = "card img">
     </div>
     <button type="submit" class="btn" id = "remove">Remove</button> `
-
   );
 
-  DOMSelectors.imgInput.value = "";
-  DOMSelectors.nameInput.value = "";
+  
 }
-function removeCard(){
+function clearCard(){
+  imgUrl = "";
+  name = "";
+
+}
+function removeCard() {
   event.preventDefault();
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
@@ -36,5 +38,8 @@ function removeCard(){
     </div>`
   );
 }
-DOMSelectors.form.addEventListener("submit", createCard );
-DOMSelectors.removeButton.addEventListener("click", removeCard );
+DOMSelectors.form.addEventListener("submit", function(event){
+  createCard();
+  clearCard();
+})
+DOMSelectors.removeButton.addEventListener("click", removeCard);
