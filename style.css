@@ -46,8 +46,8 @@ input{
     margin-bottom: 1rem;
   }
 .card-img{
-    max-height: 300px;
-    max-width: 200px;
+    height: 300px;
+    width: 200px;
     
 }
 /* background
