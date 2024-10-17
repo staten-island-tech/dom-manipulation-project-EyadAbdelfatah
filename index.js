@@ -4,7 +4,8 @@ const DOMSelectors = {
   button: document.querySelector(".btn"),
   nameInput: document.querySelector("#name-input"),
   form: document.querySelector("form"),
-  removeButton:document.querySelector("#remove")
+  removeButton:document.querySelector("#remove"),
+  error_container:document.querySelector("form-container"),
 };
 
 function createCard(event) {
@@ -12,7 +13,10 @@ function createCard(event) {
 
   const imgUrl = DOMSelectors.imgInput.value;
   const name = DOMSelectors.nameInput.value;
-
+  if(!imgUrl || !name){
+    alert("Please enter all values")
+  }
+  else{
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
     `
@@ -22,7 +26,8 @@ function createCard(event) {
     </div>
     <button type="submit" class="btn" id = "remove">Remove</button> `
 
-  );
+  );}
+  clearInput();
 
   
 }
@@ -34,9 +39,9 @@ function removeCard(event){
 function clearInput(){
   DOMSelectors.imgInput.value = "";
   DOMSelectors.nameInput.value = "";
-  imgUrl = "";
-  name = "";
 }
 
 DOMSelectors.form.addEventListener("submit", createCard );
-DOMSelectors.removeButton.addEventListener("click", removeCard );
+
+DOMSelectors.removeButton.addEventListener("submit", removeCard );
+
