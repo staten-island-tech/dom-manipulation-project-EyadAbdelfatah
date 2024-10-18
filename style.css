@@ -1,3 +1,4 @@
+
 body,html,*{
     box-sizing: border-box;
     margin: 0;
@@ -7,14 +8,29 @@ body,html,*{
 body{
     background-color: black;
 }
+
+
+::placeholder,
+h1,
+h2,
+button {
+    color: #d3a155;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+button{
+    font-size: 12px;
+}
 h1{
     font-size: 50px;
     text-align: center;
-    color: white;
+
 }
 h2{
     font-size: 30px;
-    color: white;
+
 }
 .form-container{
     text-align: center;
@@ -40,7 +56,7 @@ input{
 
 }
 .card {
-    border: 2rem solid white;
+    border: 2rem solid #d3a155;
     padding: 1rem;
     margin-right: 10px;
     margin-bottom: 10px;

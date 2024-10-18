@@ -11,8 +11,8 @@ const DOMSelectors = {
 function createCard(event) {
   event.preventDefault();
 
-  let imgUrl = DOMSelectors.imgInput.value;
-  let name = DOMSelectors.nameInput.value;
+  const imgUrl = DOMSelectors.imgInput.value;
+  const name = DOMSelectors.nameInput.value;
 
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
@@ -28,13 +28,13 @@ function createCard(event) {
 }
 function removeCard(event) {
   if (event.target.id === "remove") {
-    const cardToRemove = event.target.parentElement;
-    cardToRemove.remove();
+    const selectedCard = event.target.parentElement;
+    selectedCard.remove();
   }
 }
 function clearInput() {
-  name = "";
-  imgInput = "";
+  DOMSelectors.imgInput.value = "";
+  DOMSelectors.nameInput.value = "";
 }
 
 DOMSelectors.form.addEventListener("submit", createCard);
