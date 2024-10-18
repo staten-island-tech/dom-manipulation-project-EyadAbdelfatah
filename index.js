@@ -5,13 +5,14 @@ const DOMSelectors = {
   nameInput: document.querySelector("#name-input"),
   form: document.querySelector("form"),
   removeButton: document.querySelector("#remove"),
+  
 };
 
 function createCard(event) {
   event.preventDefault();
 
-  const imgUrl = DOMSelectors.imgInput.value;
-  const name = DOMSelectors.nameInput.value;
+  let imgUrl = DOMSelectors.imgInput.value;
+  let name = DOMSelectors.nameInput.value;
 
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
@@ -26,14 +27,16 @@ function createCard(event) {
   clearInput();
 }
 function removeCard(event) {
-  event.preventDefault();
-  document.querySelector(".card").remove();
+  if (event.target.id === "remove") {
+    const cardToRemove = event.target.parentElement;
+    cardToRemove.remove();
+  }
 }
 function clearInput() {
-  DOMSelectors.imgInput.value = "";
-  DOMSelectors.nameInput.value = "";
+  name = "";
+  imgInput = "";
 }
 
 DOMSelectors.form.addEventListener("submit", createCard);
 
-DOMSelectors.removeButton.addEventListener("submit", removeCard);
+DOMSelectors.container.addEventListener("click", removeCard);

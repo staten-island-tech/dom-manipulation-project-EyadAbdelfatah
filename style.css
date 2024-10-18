@@ -37,7 +37,7 @@ input{
 .btn{
     height: 20px;
     width: 50px;
-    font-size: 10px;
+
 }
 .card {
     border: 2rem solid white;
@@ -51,7 +51,6 @@ input{
   
 .card-header {
     font-size: 2rem;
-
     margin-bottom: 1rem;
   }
 .card-img{
@@ -60,9 +59,3 @@ input{
     object-fit: contain;
     
 }
-/* background
-black 
-some text
-#f4dcce
-other etxt
-#2977fc */
