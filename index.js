@@ -1,42 +1,54 @@
 const DOMSelectors = {
   container: document.querySelector(".container"),
   imgInput: document.querySelector("#img-input"),
-  button: document.querySelector(".btn"),
   nameInput: document.querySelector("#name-input"),
   form: document.querySelector("form"),
-  removeButton: document.querySelector("#remove"),
+  description: document.querySelector("#description-input"),
   
+
 };
 
-function createCard(event) {
-  event.preventDefault();
+function createCard() {
 
-  const imgUrl = DOMSelectors.imgInput.value;
-  const name = DOMSelectors.nameInput.value;
 
-  DOMSelectors.container.insertAdjacentHTML(
-    "beforeend",
-    `
-    <div class="card" >
-    <h2 class="card-header"> ${name} </h2>
-        <img src="${imgUrl}" alt="User Image" class = "card-img">
-        <button type="submit" class="btn" id = "remove">Remove</button>
-    </div>
-     `
-  );
-  clearInput();
+  
+  DOMSelectors.form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let imgUrl = DOMSelectors.imgInput.value;
+    let name = DOMSelectors.nameInput.value;
+    let description = DOMSelectors.description.value;
+    DOMSelectors.container.insertAdjacentHTML(
+      
+      "beforeend",
+      `
+        <div class="card" >
+        <h2 class="card-header"> ${name} </h2>
+            <img src="${imgUrl}" alt="User Image" class = "card-img">
+            <p>${description}</p>
+            <button type="button" class="btn" id = "remove">Remove</button>
+        </div>
+         `
+    );
+    clearInput();
+  })
+
+  
 }
-function removeCard(event) {
-  if (event.target.id === "remove") {
-    const selectedCard = event.target.parentElement;
-    selectedCard.remove();
-  }
+function removeCard() {
+  DOMSelectors.container.addEventListener("click", function (event) {
+    if (event.target.id === "remove") {
+      const selectedCard = event.target.parentElement;
+      selectedCard.remove();
+    }
+  });
 }
+
 function clearInput() {
   DOMSelectors.imgInput.value = "";
   DOMSelectors.nameInput.value = "";
+  DOMSelectors.description.value="";
 }
 
-DOMSelectors.form.addEventListener("submit", createCard);
+createCard();
 
-DOMSelectors.container.addEventListener("click", removeCard);
+removeCard();
